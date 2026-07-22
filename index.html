@@ -9,29 +9,29 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #5865F2;
-            --secondary: #EB459E;
-            --accent: #00A8FF;
-            --city-blue: #1E90FF;
+            --primary: #2C3E50;
+            --secondary: #34495E;
+            --accent: #3498DB;
             --dark-bg: #1a1a2e;
             --darker-bg: #16213e;
             --card-bg: #0f3460;
-            --text-light: #eaeaea;
-            --text-gray: #b9bbbe;
+            --text-light: #ecf0f1;
+            --text-gray: #95a5a6;
+            --border-color: #34495e;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
             color: var(--text-light);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         /* Navigation */
         nav {
             position: fixed; top: 0; width: 100%;
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px); z-index: 1000;
-            padding: 1rem 5%; box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            background: rgba(26, 26, 46, 0.98);
+            z-index: 1000;
+            padding: 1rem 5%;
+            border-bottom: 1px solid var(--border-color);
         }
         .nav-container {
             max-width: 1400px; margin: 0 auto;
@@ -39,95 +39,76 @@
         }
         .logo {
             display: flex; align-items: center; gap: 15px;
-            font-size: 1.5rem; font-weight: bold; color: var(--text-light);
+            font-size: 1.5rem; font-weight: 600; color: var(--text-light);
         }
         .logo img {
-            width: 60px; height: 60px;
-            box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+            width: 50px; height: 50px;
         }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             color: var(--text-gray); text-decoration: none; font-weight: 500;
-            transition: all 0.3s; position: relative;
+            transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--city-blue); }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 0; height: 2px; background: var(--city-blue); transition: width 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
-        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
+        .nav-links a:hover { color: var(--accent); }
+        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
 
         /* Hero Section */
         .hero {
-            margin-top: 80px; padding: 80px 5%; text-align: center;
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.15) 0%, rgba(0, 168, 255, 0.1) 100%);
-            position: relative; overflow: hidden;
+            margin-top: 70px; padding: 80px 5%; text-align: center;
+            background: linear-gradient(135deg, rgba(30, 58, 83, 0.6) 0%, rgba(26, 26, 46, 0.6) 100%);
         }
-        .hero::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(30, 144, 255, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px; animation: moveGrid 20s linear infinite;
-        }
-        @keyframes moveGrid { 0% { transform: translate(0, 0); } 100% { transform: translate(40px, 40px); } }
         .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
         .hero-logo {
-            width: 280px; height: auto; margin-bottom: 2rem;
-            filter: drop-shadow(0 0 30px rgba(30, 144, 255, 0.5));
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            width: 250px; height: auto; margin-bottom: 2rem;
         }
         .hero h1 {
-            font-size: 3.5rem; margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--city-blue), var(--accent));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            font-size: 3rem; margin-bottom: 1rem;
+            color: var(--text-light);
+            font-weight: 700;
         }
-        .hero p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem; }
+        .hero p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
         
         .join-code {
-            background: rgba(0, 0, 0, 0.3); border: 2px dashed var(--accent);
-            padding: 1rem 2rem; border-radius: 10px; display: inline-block;
-            margin: 1.5rem 0; font-size: 1.5rem; font-weight: bold; letter-spacing: 2px;
+            background: rgba(52, 152, 219, 0.1); border: 2px solid var(--accent);
+            padding: 1rem 2rem; border-radius: 5px; display: inline-block;
+            margin: 1.5rem 0; font-size: 1.3rem; font-weight: 600; letter-spacing: 2px;
+            color: var(--accent);
         }
-        .join-code span { color: var(--accent); }
 
         .stats {
             display: flex; justify-content: center; gap: 2rem; margin: 3rem 0; flex-wrap: wrap;
         }
         .stat-item {
             text-align: center; padding: 1.5rem 2rem;
-            background: rgba(15, 52, 96, 0.6); border-radius: 15px;
-            border: 1px solid rgba(30, 144, 255, 0.3); min-width: 140px;
+            background: rgba(15, 52, 96, 0.4); border-radius: 8px;
+            border: 1px solid var(--border-color); min-width: 140px;
         }
-        .stat-number { font-size: 2.2rem; font-weight: bold; color: var(--city-blue); }
-        .stat-label { color: var(--text-gray); font-size: 0.9rem; }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--accent); }
+        .stat-label { color: var(--text-gray); font-size: 0.9rem; margin-top: 0.5rem; }
 
         .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
         .btn {
-            padding: 1rem 2.5rem; border: none; border-radius: 50px; font-size: 1.1rem;
-            font-weight: bold; cursor: pointer; transition: all 0.3s; text-decoration: none;
+            padding: 1rem 2.5rem; border: none; border-radius: 5px; font-size: 1rem;
+            font-weight: 600; cursor: pointer; text-decoration: none;
             display: inline-flex; align-items: center; gap: 10px;
+            transition: background 0.3s;
         }
         .btn-primary {
-            background: linear-gradient(135deg, var(--city-blue), var(--accent)); color: white;
-            box-shadow: 0 5px 20px rgba(30, 144, 255, 0.4);
+            background: var(--accent); color: white;
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(30, 144, 255, 0.6); }
-        .btn-secondary { background: transparent; color: var(--text-light); border: 2px solid var(--city-blue); }
-        .btn-secondary:hover { background: var(--city-blue); transform: translateY(-3px); }
+        .btn-primary:hover { background: #2980b9; }
+        .btn-secondary { background: transparent; color: var(--text-light); border: 2px solid var(--border-color); }
+        .btn-secondary:hover { background: var(--border-color); }
 
         /* Sections */
         section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
         .section-title {
-            text-align: center; font-size: 2.5rem; margin-bottom: 3rem; position: relative;
+            text-align: center; font-size: 2.2rem; margin-bottom: 3rem;
+            color: var(--text-light); font-weight: 600;
         }
         .section-title::after {
-            content: ''; display: block; width: 80px; height: 4px;
-            background: linear-gradient(90deg, var(--city-blue), var(--accent));
-            margin: 1rem auto; border-radius: 2px;
+            content: ''; display: block; width: 60px; height: 3px;
+            background: var(--accent); margin: 1rem auto;
         }
 
         /* Grids & Cards */
@@ -135,70 +116,77 @@
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         
         .card {
-            background: var(--card-bg); padding: 2rem; border-radius: 20px;
-            text-align: center; transition: all 0.3s; border: 1px solid rgba(30, 144, 255, 0.2);
-            position: relative; overflow: hidden;
+            background: var(--card-bg); padding: 2rem; border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
-        .card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--city-blue), var(--accent));
-        }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(30, 144, 255, 0.3); }
-        .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--city-blue); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-light); font-weight: 600; }
         .card p, .card ul { color: var(--text-gray); font-size: 0.95rem; text-align: left; }
         .card ul { list-style: none; padding-left: 0; }
         .card ul li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; }
-        .card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--secondary); }
+        .card ul li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
 
         /* Team */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .team-card {
+            background: var(--card-bg); padding: 2rem; border-radius: 8px;
+            text-align: center; border: 1px solid var(--border-color);
+        }
         .team-card img {
             width: 120px; height: 120px; border-radius: 50%; margin-bottom: 1.5rem;
-            border: 4px solid var(--city-blue); object-fit: cover;
+            border: 3px solid var(--accent); object-fit: cover;
         }
+        .team-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 600; }
         .role-badge {
-            display: inline-block; background: linear-gradient(135deg, var(--city-blue), var(--accent)); 
-            color: white; padding: 0.3rem 1rem; border-radius: 20px; 
-            font-size: 0.85rem; font-weight: bold; margin-bottom: 0.5rem;
+            display: inline-block; background: var(--accent); 
+            color: white; padding: 0.3rem 1rem; border-radius: 4px; 
+            font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;
         }
+        .team-card .username { color: var(--text-gray); font-size: 0.9rem; }
 
         /* Steps */
         .step {
             text-align: center; padding: 2rem; background: var(--card-bg);
-            border-radius: 20px; border: 1px solid rgba(30, 144, 255, 0.2);
+            border-radius: 8px; border: 1px solid var(--border-color);
         }
         .step-number {
             width: 50px; height: 50px;
-            background: linear-gradient(135deg, var(--city-blue), var(--accent));
+            background: var(--accent);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;
+            font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem; color: white;
         }
+        .step h3 { margin-bottom: 1rem; color: var(--text-light); font-weight: 600; }
+        .step p { color: var(--text-gray); }
 
         /* Footer */
         footer {
             background: var(--darker-bg); padding: 3rem 5%; text-align: center;
-            border-top: 1px solid rgba(30, 144, 255, 0.2);
+            border-top: 1px solid var(--border-color);
         }
         .footer-logo {
-            width: 150px; height: auto; margin-bottom: 1rem;
+            width: 120px; height: auto; margin-bottom: 1rem;
+        }
+        .footer-title {
+            font-size: 1.5rem; font-weight: 700; color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        .footer-since {
+            color: #27ae60; font-weight: 600; margin-bottom: 1.5rem;
+            letter-spacing: 2px;
         }
         .social-links { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; }
-        .social-links a { color: var(--text-gray); font-size: 2rem; transition: all 0.3s; }
-        .social-links a:hover { color: var(--city-blue); transform: translateY(-5px); }
-        .footer-text { color: var(--text-gray); margin-top: 1rem; font-size: 0.9rem; }
-
-        /* Animations */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .social-links a { color: var(--text-gray); font-size: 1.8rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent); }
+        .footer-text { color: var(--text-gray); margin-top: 1rem; font-size: 0.85rem; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu { display: block; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero-logo { width: 200px; }
+            .hero h1 { font-size: 2rem; }
+            .hero-logo { width: 180px; }
             .stats { gap: 1rem; }
             .stat-item { padding: 1rem; min-width: 100px; }
-            .stat-number { font-size: 1.8rem; }
+            .stat-number { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -231,7 +219,7 @@
             <p>Un serveur Emergency Response: Liberty County (ERLC) avec une communauté active et évolutive, axé sur la ville de Sherbrooke, Québec.</p>
             
             <div class="join-code">
-                CODE DE JEU : <span>SHERBRP</span>
+                CODE DE JEU : SHERBRP
             </div>
 
             <div class="stats">
@@ -268,8 +256,8 @@
     <section id="departements">
         <h2 class="section-title">Départements & Services</h2>
         <div class="grid-3">
-            <div class="card fade-in">
-                <div class="card-icon">🚔</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3>Sûreté du Québec (SQ)</h3>
                 <ul>
                     <li>Patrouille et contrôle routier</li>
@@ -277,8 +265,8 @@
                     <li>Enquêtes criminelles</li>
                 </ul>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">👮</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
                 <h3>Service de Police (SPS)</h3>
                 <ul>
                     <li>Police municipale de Sherbrooke</li>
@@ -286,8 +274,8 @@
                     <li>Groupe d'Enquête Criminelle (GEC)</li>
                 </ul>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">🚒</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-fire-extinguisher"></i></div>
                 <h3>SPCIS (Pompiers)</h3>
                 <ul>
                     <li>Lutte contre les incendies</li>
@@ -295,8 +283,8 @@
                     <li>Unités spécialisées</li>
                 </ul>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">🚑</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-truck-medical"></i></div>
                 <h3>Ambulance d'Estrie</h3>
                 <ul>
                     <li>Paramédic soins primaires à critiques</li>
@@ -304,8 +292,8 @@
                     <li>Formation et stage</li>
                 </ul>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">🚧</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-road"></i></div>
                 <h3>MTQ</h3>
                 <ul>
                     <li>Entretien et sécurité routière</li>
@@ -313,8 +301,8 @@
                     <li>Gestion des infractions routières</li>
                 </ul>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">📞</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-headset"></i></div>
                 <h3>CGA (Centre de Gestion)</h3>
                 <ul>
                     <li>Réception des appels 911</li>
@@ -326,26 +314,26 @@
     </section>
 
     <!-- Economy & Civilian Life -->
-    <section id="economie" style="background: rgba(15, 52, 96, 0.3); border-radius: 30px; margin: 40px auto;">
+    <section id="economie" style="background: rgba(15, 52, 96, 0.3); border-radius: 0; margin: 0;">
         <h2 class="section-title">Vie Civile & Économie</h2>
         <div class="grid-4">
-            <div class="card fade-in">
-                <div class="card-icon">🏥</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hospital"></i></div>
                 <h3>Centre Hospitalier</h3>
                 <p>PDG, Chirurgiens, Médecins et Infirmiers pour un RP médical poussé.</p>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">📰</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-newspaper"></i></div>
                 <h3>Médias & Radio</h3>
                 <p>TVS Nouvelles, Journalistes, et FiveMusic Radio (94.3).</p>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">🚗</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-car"></i></div>
                 <h3>Transport & Mécanique</h3>
                 <p>Vortex Towing, TopSpeed, Transport Fodis, Sherb Taxi et STS.</p>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">💼</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-briefcase"></i></div>
                 <h3>Services & Commerce</h3>
                 <p>Féli Banque, Horizon Sherbrooke, ZoneSportive, Tondeuse et cie.</p>
             </div>
@@ -356,8 +344,8 @@
     <section id="justice">
         <h2 class="section-title">Justice & Criminalité</h2>
         <div class="grid-3">
-            <div class="card fade-in">
-                <div class="card-icon">⚖️</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-scale-balanced"></i></div>
                 <h3>Palais de Justice</h3>
                 <ul>
                     <li>Juges en chef et Juges</li>
@@ -365,8 +353,8 @@
                     <li>Avocats et Huissiers audienciers</li>
                 </ul>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">🩸</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-skull"></i></div>
                 <h3>Gangs Structurés</h3>
                 <ul>
                     <li><strong>Bloods</strong> : Hiérarchie complète (Chef, Bras Droit, Soldats)</li>
@@ -374,8 +362,8 @@
                     <li><strong>Reaper</strong> : Organisation criminelle testée et approuvée</li>
                 </ul>
             </div>
-            <div class="card fade-in">
-                <div class="card-icon">🛡️</div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
                 <h3>Sécurité & Enquêtes</h3>
                 <ul>
                     <li>Bureau des Enquêtes Indépendantes</li>
@@ -389,22 +377,28 @@
     <!-- Team -->
     <section id="equipe">
         <h2 class="section-title">L'Équipe de Direction</h2>
-        <div class="grid-3" style="max-width: 800px; margin: 0 auto;">
-            <div class="card team-card fade-in">
-                <img src="https://cdn.discordapp.com/icons/1442003095377674414/9bf05f87fd91f1e20eafc6aa6e70ec03.webp?size=1024" alt="Owner">
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://cdn.discordapp.com/avatars/1056608991075123211/a2d6ea2b6d8db263c3e8b07ca8605d49.webp?size=1024" alt="jerome201209">
                 <h3>jerome201209</h3>
                 <div class="role-badge">Propriétaire (Owner)</div>
-                <p style="text-align: center; color: var(--text-gray);">@31-22 | jerome201209</p>
+                <p class="username">@31-22 | jerome201209</p>
             </div>
-            <div class="card team-card fade-in">
-                <img src="https://cdn.discordapp.com/avatars/1281784488854159421/608fbe0e316e417b5e83539ef8555255.webp?size=1024" alt="Developer">
+            <div class="team-card">
+                <img src="https://cdn.discordapp.com/avatars/1504186999098314882/0b7fe4ae81670ba163b4eb6507671e48.webp?size=1024" alt="Vanile101010">
+                <h3>Vanile101010</h3>
+                <div class="role-badge">Fondatrice</div>
+                <p class="username">disc0rdvanille</p>
+            </div>
+            <div class="team-card">
+                <img src="https://cdn.discordapp.com/avatars/1281784488854159421/608fbe0e316e417b5e83539ef8555255.webp?size=1024" alt="Jacobin Babouain">
                 <h3>Jacobin Babouain</h3>
                 <div class="role-badge">Développeur</div>
-                <p style="text-align: center; color: var(--text-gray);">@jacobin904</p>
+                <p class="username">@jacobin904</p>
             </div>
         </div>
         <p style="text-align: center; margin-top: 2rem; color: var(--text-gray);">
-            Et toute l'équipe des Administrateurs, Modérateurs, et du Staff ⚜️
+            Et toute l'équipe des Administrateurs, Modérateurs, et du Staff
         </p>
     </section>
 
@@ -412,25 +406,25 @@
     <section id="rejoindre">
         <h2 class="section-title">Comment Rejoindre le Serveur ?</h2>
         <div class="grid-4">
-            <div class="step fade-in">
+            <div class="step">
                 <div class="step-number">1</div>
                 <h3>Rejoindre le Discord</h3>
                 <p>Clique sur le bouton Discord pour rejoindre la communauté et lire le règlement.</p>
             </div>
-            <div class="step fade-in">
+            <div class="step">
                 <div class="step-number">2</div>
                 <h3>Vérification</h3>
                 <p>Utilise les bots <strong>Melonly</strong> ou <strong>RoVer</strong> pour lier ton compte Discord à ton compte Roblox.</p>
             </div>
-            <div class="step fade-in">
+            <div class="step">
                 <div class="step-number">3</div>
                 <h3>Choisir tes Rôles</h3>
                 <p>Rends-toi dans les salons de rôles pour choisir tes notifications et ta tranche d'âge.</p>
             </div>
-            <div class="step fade-in">
+            <div class="step">
                 <div class="step-number">4</div>
                 <h3>Jouer sur ERLC</h3>
-                <p>Ouvre Roblox, lance Emergency Response: Liberty County et rejoins le serveur avec le code : <br><strong style="color: var(--accent); font-size: 1.2rem;">SHERBRP</strong></p>
+                <p>Ouvre Roblox, lance Emergency Response: Liberty County et rejoins le serveur avec le code : <br><strong style="color: var(--accent);">SHERBRP</strong></p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 3rem;">
@@ -443,10 +437,8 @@
     <!-- Footer -->
     <footer>
         <img src="https://cdn.discordapp.com/icons/1442003095377674414/9bf05f87fd91f1e20eafc6aa6e70ec03.webp?size=1024" alt="Sherbrooke RP Logo" class="footer-logo">
-        <div class="logo" style="justify-content: center; margin-bottom: 1rem; font-size: 1.8rem;">
-            <span style="color: var(--city-blue);">SHERBROOKE</span> <span style="color: var(--text-light);">RP</span>
-        </div>
-        <p style="color: #228B22; font-weight: bold; margin-bottom: 1rem;">DEPUIS 2025</p>
+        <div class="footer-title">SHERBROOKE RP</div>
+        <div class="footer-since">DEPUIS 2025</div>
         <div class="social-links">
             <a href="https://discord.gg/JBND23V6q" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
             <a href="#" title="Roblox"><i class="fab fa-roblox"></i></a>
@@ -454,7 +446,7 @@
             <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
         <p class="footer-text">© 2025-2026 Sherbrooke RP. Tous droits réservés.</p>
-        <p class="footer-text">Serveur ERLC francophone basé au Québec 🇨🇦 | ID: 1442003095377674414</p>
+        <p class="footer-text">Serveur ERLC francophone basé au Québec | ID: 1442003095377674414</p>
     </footer>
 
     <script>
@@ -468,17 +460,6 @@
                 }
             });
         });
-
-        // Fade in animation on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
         // Mobile menu
         const mobileMenu = document.querySelector('.mobile-menu');
