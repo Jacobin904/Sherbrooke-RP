@@ -20,29 +20,20 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
         :root {
-            /* Couleurs du logo Sherbrooke RP */
             --nuit-0:#05080f;
             --nuit-1:#0a1024;
             --nuit-2:#0d1530;
             --nuit-3:#111a3a;
-            
-            /* Bleus du logo (principaux) */
             --primary:#2563eb;
             --primary-dark:#1d4ed8;
             --primary-light:#3b82f6;
             --blue-clar:#60a5fa;
-            
-            /* Blanc et gris */
             --blanc:#f2f4fb;
             --blanc-2:#d6dcef;
             --gris:#8b95b5;
             --gris-2:#5d688a;
-            
-            /* Bordures et effets */
             --border:rgba(214,220,239,.10);
             --border-primary:rgba(37, 99, 235, .35);
-            
-            /* Gradients */
             --grad-argent:linear-gradient(135deg,#fff 0%,#d6dcef 45%,#b8c4e0 100%);
             --grad-primary:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);
             --grad-primary-light:linear-gradient(135deg,#3b82f6 0%,#2563eb 100%);
@@ -50,14 +41,11 @@
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{font-family:'Inter',sans-serif;background:var(--nuit-0);color:var(--blanc-2);line-height:1.7;overflow-x:hidden}
-
         :focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:4px}
-
         ::-webkit-scrollbar{width:8px}
         ::-webkit-scrollbar-track{background:var(--nuit-0)}
         ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--primary),var(--primary-dark));border-radius:4px}
         ::-webkit-scrollbar-thumb:hover{background:var(--primary)}
-
         .grain{position:fixed;inset:0;z-index:9997;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px 128px}
         .glow-follow{position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.06) 0%,transparent 70%);pointer-events:none;z-index:-1;transform:translate(-50%,-50%)}
         .mesh-bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
@@ -66,13 +54,11 @@
         .mesh-blob:nth-child(2){width:400px;height:400px;background:rgba(37,99,235,.25);bottom:10%;right:-5%;animation-delay:-7s}
         .mesh-blob:nth-child(3){width:350px;height:350px;background:rgba(37,99,235,.08);top:40%;left:50%;animation-delay:-14s}
         @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.1)}50%{transform:translate(-20px,30px) scale(.95)}75%{transform:translate(40px,20px) scale(1.05)}}
-
         .progress-dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:12px}
         .progress-dots .dot{width:10px;height:10px;border-radius:50%;background:rgba(214,220,239,.2);border:1px solid rgba(214,220,239,.15);transition:all .4s;cursor:pointer}
         .progress-dots .dot.active{background:var(--primary);border-color:var(--primary);box-shadow:0 0 12px rgba(37,99,235,.5);transform:scale(1.4)}
         .progress-dots .dot:hover{background:var(--blanc);transform:scale(1.3)}
         @media(max-width:900px){.progress-dots{display:none}}
-
         .preloader{position:fixed;inset:0;background:var(--nuit-0);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .8s,visibility .8s}
         .preloader.hidden{opacity:0;visibility:hidden}
         .preloader-logo{width:90px;height:90px;border-radius:50%;border:3px solid rgba(214,220,239,.3);animation:pSpin 2s linear infinite,pPulse 1.5s ease-in-out infinite;box-shadow:0 0 40px rgba(37,99,235,.6)}
@@ -82,11 +68,9 @@
         .preloader-bar i{display:block;height:100%;width:0%;background:var(--grad-primary);border-radius:3px;transition:width .15s linear}
         .preloader-percent{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--primary);letter-spacing:2px}
         .preloader-text{font-family:'Playfair Display',serif;font-size:1rem;letter-spacing:4px;background:var(--grad-argent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase}
-
         .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#2563eb,#1d4ed8);z-index:1001;box-shadow:0 0 10px rgba(37,99,235,.4);transition:width .1s linear}
         #particleCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none}
         .container{width:100%;max-width:1400px;margin:0 auto;padding:0 40px}
-
         header{background:rgba(8,12,26,.94);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--border);color:#fff;padding:20px 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 4px 30px rgba(0,0,0,.6);transition:all .3s}
         header.scrolled{padding:12px 0;background:rgba(5,8,15,.98)}
         nav{display:flex;justify-content:space-between;align-items:center}
@@ -105,7 +89,6 @@
         .hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
         .hamburger.active span:nth-child(2){opacity:0}
         .hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-
         .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:180px 20px 120px;position:relative;overflow:hidden}
         .hero-content{max-width:1100px;z-index:1;position:relative}
         .hero-badge{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(37,99,235,.5),rgba(37,99,235,.15));backdrop-filter:blur(15px);padding:15px 35px;border-radius:50px;font-size:.95rem;font-weight:700;margin-bottom:35px;border:1px solid rgba(37,99,235,.35);color:#a5d8ff;letter-spacing:2px;text-transform:uppercase;animation:slideDown 1s ease;box-shadow:0 10px 30px rgba(37,99,235,.4)}
@@ -127,12 +110,10 @@
         .btn:hover{transform:translateY(-3px);box-shadow:0 25px 60px rgba(37,99,235,.4);border-color:var(--primary)}
         .btn-secondary{background:transparent;border:2px solid rgba(214,220,239,.4);box-shadow:none}
         .btn-secondary:hover{background:rgba(37,99,235,.1);border-color:var(--primary);box-shadow:0 15px 40px rgba(37,99,235,.2)}
-
         .section-divider{width:100%;height:80px;position:relative;overflow:hidden}
         .section-divider svg{position:absolute;bottom:0;width:100%;height:100%}
         .section-divider path{animation:waveMove 8s ease-in-out infinite}
         @keyframes waveMove{0%,100%{d:path("M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z")}50%{d:path("M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,80 L0,80 Z")}}
-
         .marquee{background:linear-gradient(90deg,var(--nuit-2),var(--primary-dark),var(--nuit-2));padding:25px 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:5}
         .marquee-track{display:flex;gap:60px;white-space:nowrap;animation:marqScroll 25s linear infinite;width:max-content}
         .marquee-item{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--blanc);display:flex;align-items:center;gap:60px;letter-spacing:3px}
@@ -141,14 +122,12 @@
         .marquee-item .sep:nth-of-type(3n+2){color:var(--blanc)}
         .marquee-item .sep:nth-of-type(3n+3){color:var(--blue-clar)}
         @keyframes marqScroll{to{transform:translateX(-50%)}}
-
         section{padding:120px 0;position:relative}
         .section-header{text-align:center;margin-bottom:80px}
         .section-header h2{font-size:3.5rem;background:var(--grad-argent);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:25px;font-weight:900;font-family:'Playfair Display',serif;display:inline-block;position:relative;animation:gradShift 4s ease infinite}
         .section-header h2::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background:var(--grad-primary);border-radius:2px;animation:expandW 2s ease infinite}
         @keyframes expandW{0%,100%{width:100px}50%{width:150px}}
         .section-header p{color:var(--gris);max-width:650px;margin:0 auto;font-size:1.2rem;line-height:1.9}
-
         .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:35px}
         .feature-card{background:rgba(13,21,48,.6);border-radius:28px;padding:50px;border:1px solid var(--border);backdrop-filter:blur(15px);transition:border-color .5s,box-shadow .5s,transform .5s;position:relative;overflow:hidden;transform-style:preserve-3d}
         .feature-card .spotlight{position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(37,99,235,.14),transparent 42%);opacity:0;transition:opacity .4s;pointer-events:none}
@@ -164,7 +143,6 @@
         .feature-card:hover .feature-icon{transform:translateZ(60px) scale(1.15) rotate(10deg);background:var(--grad-primary-light);color:var(--nuit-1)}
         .feature-card h3{font-size:1.8rem;margin-bottom:18px;color:var(--blanc);font-weight:800;position:relative;z-index:1;transform:translateZ(30px)}
         .feature-card p{color:var(--gris);line-height:1.9;font-size:1.05rem;position:relative;z-index:1;transform:translateZ(20px)}
-
         .dept-section{background:linear-gradient(180deg,var(--nuit-0),var(--nuit-1))}
         .dept-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:25px}
         .dept-tag{background:linear-gradient(135deg,rgba(37,99,235,.4),rgba(13,21,48,.6));padding:22px 40px;border-radius:50px;font-weight:700;color:var(--blanc-2);border:1px solid var(--border-primary);display:flex;align-items:center;gap:14px;transition:all .5s;backdrop-filter:blur(10px);font-size:1.05rem;box-shadow:0 10px 30px rgba(37,99,235,.2);position:relative;overflow:hidden}
@@ -173,7 +151,6 @@
         .dept-tag:hover::before{left:100%}
         .dept-tag:hover{transform:translateY(-8px) scale(1.08);background:var(--grad-primary);border-color:var(--primary);color:#fff}
         .dept-tag:hover i{color:#fff}
-
         .rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:30px}
         .rule-card{background:rgba(13,21,48,.6);padding:40px;border-radius:24px;border-left:6px solid var(--primary);border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);backdrop-filter:blur(10px);transition:all .5s;position:relative;overflow:hidden}
         .rule-card .rule-num{position:absolute;top:15px;right:25px;font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:rgba(214,220,239,.04);line-height:1;transition:all .5s}
@@ -182,7 +159,6 @@
         .rule-card h4{color:var(--blanc);margin-bottom:15px;font-size:1.4rem;display:flex;align-items:center;gap:14px;font-weight:800;position:relative;z-index:1}
         .rule-card h4 i{color:#a5d8ff}
         .rule-card p{color:var(--gris);font-size:1.05rem;line-height:1.9;position:relative;z-index:1}
-
         .team-section{background:linear-gradient(180deg,var(--nuit-1),var(--nuit-0))}
         .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px;max-width:1200px;margin:0 auto}
         .team-grid .team-card:nth-child(1) .team-role,.team-grid .team-card:nth-child(2) .team-role{background:var(--grad-primary);color:var(--nuit-1)}
@@ -197,7 +173,6 @@
         .team-card h3{font-size:1.8rem;background:var(--grad-argent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;font-weight:800}
         .team-role{display:inline-block;padding:6px 20px;border-radius:20px;font-size:.9rem;font-weight:700;margin-bottom:20px}
         .team-card p{color:var(--gris);line-height:1.8}
-
         .faq-container{max-width:850px;margin:0 auto}
         .faq-item{background:rgba(13,21,48,.6);border-radius:20px;margin-bottom:25px;border:1px solid var(--border);overflow:hidden;transition:all .5s;backdrop-filter:blur(10px)}
         .faq-item:hover{border-color:var(--border-primary);box-shadow:0 15px 50px rgba(37,99,235,.3)}
@@ -207,13 +182,11 @@
         .faq-item.active .faq-question i{transform:rotate(180deg);color:var(--primary)}
         .faq-answer{max-height:0;overflow:hidden;transition:max-height .6s ease,padding .6s ease;padding:0 35px;color:var(--gris);line-height:1.9;font-size:1.05rem}
         .faq-item.active .faq-answer{max-height:400px;padding:0 35px 35px 35px}
-
         .cta{background:radial-gradient(ellipse at center,rgba(37,99,235,.35),transparent 70%);text-align:center;padding:150px 0;position:relative;overflow:hidden}
         .cta h2{font-size:4rem;margin-bottom:30px;font-weight:900;font-family:'Playfair Display',serif;background:var(--grad-argent);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease infinite}
         .cta p{font-size:1.45rem;max-width:800px;margin:0 auto 60px;color:var(--gris);line-height:2}
         .cta .btn-pulse{animation:ctaPulse 2.5s ease-in-out infinite}
         @keyframes ctaPulse{0%,100%{box-shadow:0 15px 40px rgba(37,99,235,.4)}50%{box-shadow:0 15px 70px rgba(37,99,235,.75)}}
-
         footer{background:linear-gradient(180deg,var(--nuit-0),var(--nuit-1));color:var(--blanc-2);padding:100px 0 50px;border-top:1px solid var(--border)}
         .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:50px;margin-bottom:70px}
         .footer-col h4{font-size:1.5rem;margin-bottom:35px;color:var(--blanc);font-weight:800;position:relative;padding-bottom:15px}
@@ -228,11 +201,9 @@
         .social-links a{width:55px;height:55px;background:linear-gradient(135deg,rgba(37,99,235,.5),rgba(13,21,48,.6));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blanc);text-decoration:none;transition:all .5s;font-size:1.4rem;border:1px solid var(--border-primary)}
         .social-links a:hover{background:var(--grad-primary);transform:translateY(-8px) scale(1.15);border-color:var(--primary);box-shadow:0 15px 40px rgba(37,99,235,.5)}
         .copyright{text-align:center;padding-top:50px;border-top:1px solid var(--border);color:var(--gris-2)}
-
         .back-to-top{position:fixed;bottom:30px;right:30px;width:55px;height:55px;background:var(--grad-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--nuit-1);font-size:1.3rem;text-decoration:none;box-shadow:0 10px 30px rgba(37,99,235,.4);z-index:999;opacity:0;visibility:hidden;transform:translateY(20px);transition:all .4s}
         .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
         .back-to-top:hover{transform:translateY(-5px) scale(1.1)}
-
         .fab-menu,.quicknav,.quicknav-overlay{display:none}
         @keyframes fabPulse{0%,100%{box-shadow:0 10px 30px rgba(37,99,235,.4)}50%{box-shadow:0 10px 42px rgba(37,99,235,.75)}}
         @media(max-width:900px){
@@ -251,7 +222,6 @@
             .quicknav-links .qn-cta{grid-column:1/-1;background:var(--grad-primary);color:#fff;justify-content:center;border:none}
             .quicknav-links .qn-cta i{color:#fff}
         }
-
         .reveal{opacity:0;transform:translateY(50px);transition:all .8s cubic-bezier(.4,0,.2,1)}
         .reveal.active{opacity:1;transform:translateY(0)}
         .reveal-left{opacity:0;transform:translateX(-60px);transition:all .8s cubic-bezier(.4,0,.2,1)}
@@ -271,14 +241,12 @@
         .stagger.active>*:nth-child(7){transition-delay:.47s}
         .stagger.active>*:nth-child(8){transition-delay:.54s}
         .stagger.active>*:nth-child(9){transition-delay:.61s}
-
         @media(prefers-reduced-motion:reduce){
             *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
             html{scroll-behavior:auto}
             .hero h2 .char{transform:none}
             .reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger>*{opacity:1;transform:none}
         }
-
         @media(max-width:900px){.hamburger{display:flex}.nav-links{position:fixed;top:80px;left:0;width:100%;background:rgba(5,8,15,.98);backdrop-filter:blur(20px);flex-direction:column;gap:0;padding:20px 0;transform:translateY(-150%);transition:transform .4s;border-bottom:1px solid var(--border)}.nav-links.open{transform:translateY(0)}.nav-links li{width:100%;text-align:center}.nav-links a{display:block;padding:15px}}
         @media(max-width:768px){.container{padding:0 20px}.hero h2{font-size:3rem}.section-header h2{font-size:2.5rem}.cta h2{font-size:2.5rem}.btn-group{flex-direction:column;align-items:center}.features-grid,.rules-grid{grid-template-columns:1fr}.marquee-item{font-size:1.4rem;gap:40px}}
     </style>
@@ -288,17 +256,14 @@
     <div class="glow-follow" id="glowFollow"></div>
     <div class="mesh-bg"><div class="mesh-blob"></div><div class="mesh-blob"></div><div class="mesh-blob"></div></div>
     <div class="progress-dots" id="progressDots"></div>
-
     <div class="preloader" id="preloader">
         <img src="https://cdn.discordapp.com/icons/1442003095377674414/9bf05f87fd91f1e20eafc6aa6e70ec03.webp?size=1024" alt="Logo" class="preloader-logo">
         <div class="preloader-percent" id="preloaderPercent">0%</div>
         <div class="preloader-bar"><i id="preloaderBarFill"></i></div>
         <div class="preloader-text">Chargement</div>
     </div>
-
     <div class="scroll-progress" id="scrollProgress"></div>
     <canvas id="particleCanvas"></canvas>
-
     <header id="header">
         <div class="container"><nav>
             <a href="#" class="logo"><img src="https://cdn.discordapp.com/icons/1442003095377674414/9bf05f87fd91f1e20eafc6aa6e70ec03.webp?size=1024" alt="Logo"><h1>Sherbrooke RP</h1></a>
@@ -314,7 +279,6 @@
             <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
         </nav></div>
     </header>
-
     <section class="hero" id="accueil">
         <div class="hero-content" id="heroContent">
             <div class="hero-badge"><i class="fas fa-city"></i> Depuis 2025</div>
@@ -327,12 +291,10 @@
             </div>
         </div>
     </section>
-
     <div class="marquee"><div class="marquee-track">
         <div class="marquee-item">IMMERSION <i class="fas fa-star sep"></i> RÉALISME <i class="fas fa-shield-halved sep"></i> COMMUNAUTÉ <i class="fas fa-star sep"></i> SHERBROOKE <i class="fas fa-shield-halved sep"></i> ERLC <i class="fas fa-star sep"></i> QUÉBEC <i class="fas fa-shield-halved sep"></i></div>
         <div class="marquee-item">IMMERSION <i class="fas fa-star sep"></i> RÉALISME <i class="fas fa-shield-halved sep"></i> COMMUNAUTÉ <i class="fas fa-star sep"></i> SHERBROOKE <i class="fas fa-shield-halved sep"></i> ERLC <i class="fas fa-star sep"></i> QUÉBEC <i class="fas fa-shield-halved sep"></i></div>
     </div></div>
-
     <section id="apropos">
         <div class="container">
             <div class="section-header reveal"><h2>Ce qu'on vous offre</h2><p>Une expérience de roleplay urbain unique, organisée et pensée pour votre immersion.</p></div>
@@ -346,9 +308,7 @@
             </div>
         </div>
     </section>
-
     <div class="section-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path fill="rgba(37,99,235,0.15)" d="M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z"/></svg></div>
-
     <section class="dept-section" id="departements">
         <div class="container">
             <div class="section-header reveal"><h2>Nos Départements</h2><p>Rejoignez les forces vives de la ville ou bâtissez votre propre histoire.</p></div>
@@ -364,7 +324,6 @@
             </div>
         </div>
     </section>
-
     <section id="reglements">
         <div class="container">
             <div class="section-header reveal"><h2>Règlements du Serveur</h2><p>Pour garantir une expérience de jeu sérieuse, agréable et respectueuse pour tous.</p></div>
@@ -378,7 +337,6 @@
             </div>
         </div>
     </section>
-
     <section class="team-section" id="equipe">
         <div class="container">
             <div class="section-header reveal"><h2>Notre Équipe de Direction</h2><p>Des personnes passionnées et dévouées pour vous offrir la meilleure expérience de roleplay.</p></div>
@@ -387,10 +345,10 @@
                     <div class="team-img-wrap">
                         <img src="https://cdn.discordapp.com/avatars/1056608991075123211/a2d6ea2b6d8db263c3e8b07ca8605d49.webp?size=1024" alt="jerome201209" class="team-img">
                     </div>
-                    <h3>jerome201209</h3>
+                    <h3>@31-22 | jerome201209</h3>
                     <span class="team-role">Propriétaire</span>
                     <p>Garant de la vision et du développement global du serveur. Veille au bon fonctionnement et à l'évolution de la communauté.</p>
-                    <p style="margin-top:15px;font-size:.95rem"><i class="fab fa-discord"></i> @31-22 | jerome201209</p>
+                    <p style="margin-top:15px;font-size:.95rem"><i class="fab fa-discord"></i> jerome201209</p>
                 </div>
                 <div class="team-card tilt">
                     <div class="team-img-wrap">
@@ -413,7 +371,6 @@
             </div>
         </div>
     </section>
-
     <section id="faq">
         <div class="container">
             <div class="section-header reveal"><h2>Questions Fréquentes</h2><p>Tout ce que vous devez savoir avant de rejoindre nos rues.</p></div>
@@ -441,7 +398,6 @@
             </div>
         </div>
     </section>
-
     <section class="cta" id="rejoindre">
         <div class="container"><div class="reveal-scale">
             <h2>Prêt à rejoindre l'aventure ?</h2>
@@ -449,7 +405,6 @@
             <a href="https://discord.gg/JBND23V6q" class="btn btn-pulse" target="_blank" style="background:var(--grad-primary);color:var(--nuit-1);border:none;font-size:1.15rem;padding:20px 50px"><i class="fab fa-discord"></i> Rejoindre le serveur maintenant</a>
         </div></div>
     </section>
-
     <footer><div class="container">
         <div class="footer-grid">
             <div class="footer-col">
@@ -457,8 +412,10 @@
                 <p>Sherbrooke RP est un serveur Emergency Response: Liberty County (ERLC) francophone, dédié au roleplay réaliste, immersif et de qualité au Québec.</p>
                 <div class="social-links">
                     <a href="https://discord.gg/JBND23V6q" target="_blank" rel="noopener noreferrer" title="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" title="Roblox"><i class="fab fa-roblox"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.twitch.tv/sherbrooke_rp" target="_blank" rel="noopener noreferrer" title="Twitch"><i class="fab fa-twitch"></i></a>
+                    <a href="https://www.youtube.com/@SherbrookeRPQCFR" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@sherbrperlc" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://github.com/Jacobin904/Sherbrooke-RP" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -496,7 +453,6 @@
             <p>&copy; 2025-2026 Sherbrooke RP. Tous droits réservés. | Conçu avec <i class="fas fa-heart" style="color:var(--primary)"></i> par Jacobin Babouain</p>
         </div>
     </div></footer>
-
     <button class="fab-menu" id="fabMenu" aria-label="Navigation rapide"><i class="fas fa-compass"></i></button>
     <div class="quicknav-overlay" id="quicknavOverlay"></div>
     <div class="quicknav" id="quicknav">
@@ -516,9 +472,7 @@
         </nav>
     </div>
     <a href="#accueil" class="back-to-top" id="backToTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></a>
-
 <script>
-/* ===== PRELOADER avec pourcentage ===== */
 (function(){
     const percentEl = document.getElementById('preloaderPercent');
     const barFill = document.getElementById('preloaderBarFill');
@@ -538,15 +492,8 @@
     }, 90);
     setTimeout(() => { clearInterval(iv); preloader.classList.add('hidden'); }, 5000);
 })();
-
-/* ===== GLOW FOLLOW ===== */
 const glow=document.getElementById('glowFollow');
-document.addEventListener('mousemove',e=>{
-    glow.style.left=e.clientX+'px';
-    glow.style.top=e.clientY+'px'
-});
-
-/* ===== SCROLL PROGRESS + HEADER + BACK TO TOP ===== */
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
 const scrollProgress=document.getElementById('scrollProgress'),header=document.getElementById('header'),backToTop=document.getElementById('backToTop');
 window.addEventListener('scroll',()=>{
     const s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
@@ -554,8 +501,6 @@ window.addEventListener('scroll',()=>{
     header.classList.toggle('scrolled',s>100);
     backToTop.classList.toggle('visible',s>500);
 },{passive:true});
-
-/* ===== TITRE HERO : REVEAL LETTRE PAR LETTRE ===== */
 const titleEl=document.getElementById('heroTitle');
 const TITLE_TEXT=titleEl.getAttribute('data-text')||'SHERBROOKE RP';
 (function buildTitle(){
@@ -577,15 +522,11 @@ const TITLE_TEXT=titleEl.getAttribute('data-text')||'SHERBROOKE RP';
     });
     setTimeout(()=>titleEl.classList.add('done'),600+charIndex*45+800);
 })();
-
-/* ===== TYPEWRITER ===== */
 const subEl=document.getElementById('heroSub');
 const SUB_TEXT='IMMERSION • RÉALISME • COMMUNAUTÉ';
 let twI=0;
 function typeWriter(){if(twI<=SUB_TEXT.length){subEl.innerHTML=SUB_TEXT.slice(0,twI)+'<span class="tw-cursor"></span>';twI++;setTimeout(typeWriter,70)}else{subEl.innerHTML=SUB_TEXT}}
 setTimeout(typeWriter,1800);
-
-/* ===== PARTICULES + AIMANT SUBTIL ===== */
 const canvas=document.getElementById('particleCanvas'),ctx=canvas.getContext('2d');let particles=[];
 function resizeC(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}resizeC();window.addEventListener('resize',resizeC);
 function initP(){particles=[];const c=Math.min(70,Math.floor(window.innerWidth/22));for(let i=0;i<c;i++)particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.8+.8})}initP();
@@ -606,32 +547,20 @@ function drawFrame(){
 }
 function loop(){drawFrame();requestAnimationFrame(loop);}
 loop();
-
-/* ===== SCROLL REVEAL + STAGGER ===== */
 const allReveal=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger');
 const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})},{threshold:.1});
 allReveal.forEach(el=>revObs.observe(el));
-
-/* ===== PROGRESS DOTS + SPY ===== */
 const sects=document.querySelectorAll('section[id]');
 const dotsC=document.getElementById('progressDots');
 sects.forEach((s)=>{const d=document.createElement('div');d.className='dot';d.title=s.id;d.addEventListener('click',()=>{s.scrollIntoView({behavior:'smooth'})});dotsC.appendChild(d)});
 const dots=dotsC.querySelectorAll('.dot');
 const spyObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const idx=[...sects].indexOf(e.target);dots.forEach((d,i)=>d.classList.toggle('active',i===idx));document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}})},{threshold:.35});
 sects.forEach(s=>spyObs.observe(s));
-
-/* ===== FAQ ===== */
 document.querySelectorAll('.faq-item').forEach(item=>{item.querySelector('.faq-question').addEventListener('click',()=>{const a=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(o=>o.classList.remove('active'));if(!a)item.classList.add('active')})});
-
-/* ===== HAMBURGER ===== */
 const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
 hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')}));
-
-/* ===== SMOOTH SCROLL ===== */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
-
-/* ===== MOBILE NAV ===== */
 const fabMenu=document.getElementById('fabMenu'),quicknav=document.getElementById('quicknav'),quicknavOverlay=document.getElementById('quicknavOverlay'),quicknavClose=document.getElementById('quicknavClose');
 function openQN(){quicknav.classList.add('open');quicknavOverlay.classList.add('open');document.body.style.overflow='hidden'}
 function closeQN(){quicknav.classList.remove('open');quicknavOverlay.classList.remove('open');document.body.style.overflow=''}
