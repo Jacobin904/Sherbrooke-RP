@@ -259,7 +259,6 @@
         .step-content{flex:1}
         .step-content h4{font-size:1.3rem;margin-bottom:10px;color:var(--blanc)}
         .step-content p{color:var(--gris);line-height:1.7}
-
         /* ===== TIMELINE HISTORIQUE ===== */
         .history-section{background:linear-gradient(180deg,var(--nuit-0),var(--nuit-1))}
         .timeline{position:relative;max-width:900px;margin:0 auto}
@@ -275,6 +274,7 @@
         .timeline-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
         .badge-swap{background:rgba(59,130,246,.15);color:#60a5fa;border:1px solid rgba(59,130,246,.3)}
         .badge-out{background:rgba(220,38,38,.15);color:#f87171;border:1px solid rgba(220,38,38,.3)}
+        .badge-in{background:rgba(22,163,74,.15);color:#4ade80;border:1px solid rgba(22,163,74,.3)}
         .badge-buy{background:rgba(109,40,217,.15);color:#a78bfa;border:1px solid rgba(109,40,217,.3)}
         .timeline-card h3{font-size:1.45rem;color:var(--blanc);margin-bottom:10px;font-weight:800}
         .timeline-card>p{color:var(--gris);line-height:1.8;margin-bottom:22px}
@@ -288,6 +288,7 @@
         .person-tag{padding:4px 11px;border-radius:12px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
         .tag-out{background:rgba(220,38,38,.15);color:#f87171}
         .tag-in{background:rgba(22,163,74,.15);color:#4ade80}
+        .tag-promo{background:rgba(245,158,11,.15);color:#fbbf24}
         .tag-owner{background:rgba(109,40,217,.15);color:#a78bfa}
         .timeline-arrow{color:var(--primary-light);font-size:1.4rem}
         @media(max-width:768px){
@@ -542,8 +543,6 @@
             </div>
         </div>
     </section>
-
-    <!-- ===== NOUVELLE SECTION : HISTORIQUE DE LA DIRECTION ===== -->
     <section class="history-section" id="historique">
         <div class="container">
             <div class="section-header reveal">
@@ -551,7 +550,6 @@
                 <p>Retour sur les changements majeurs à la tête du serveur, de sa fondation à aujourd'hui.</p>
             </div>
             <div class="timeline">
-                <!-- 15 mars 2026 : Yuker -> Filoutalbot -->
                 <div class="timeline-item reveal">
                     <div class="timeline-dot" style="--dot:#3b82f6"></div>
                     <div class="timeline-card">
@@ -582,8 +580,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- 19 avril 2026 : départ Filoutalbot -->
                 <div class="timeline-item reveal">
                     <div class="timeline-dot" style="--dot:#dc2626"></div>
                     <div class="timeline-card">
@@ -605,8 +601,27 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- 18 juillet 2026 : Zak -> Thomas -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot" style="--dot:#16a34a"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-date"><i class="fas fa-calendar-day"></i> 2 juillet 2026</span>
+                            <span class="timeline-badge badge-in"><i class="fas fa-user-plus"></i> Arrivée</span>
+                        </div>
+                        <h3>Arrivée d'un nouveau co-fondateur</h3>
+                        <p><strong>𝑻𝒉𝒐𝒎𝒂𝒔 👓</strong> rejoint la direction du serveur et devient <strong>co-fondateur</strong>.</p>
+                        <div class="timeline-people">
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1112479857218179163/64847004f44f71d1126a4164325c96f0.webp?size=1024" alt="Thomas">
+                                <div class="p-info">
+                                    <span class="person-name">𝑻𝒉𝒐𝒎𝒂𝒔 👓</span>
+                                    <span class="person-user">@thomasestbeau1</span>
+                                </div>
+                                <span class="person-tag tag-in">Arrivée</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="timeline-item reveal">
                     <div class="timeline-dot" style="--dot:#3b82f6"></div>
                     <div class="timeline-card">
@@ -615,7 +630,7 @@
                             <span class="timeline-badge badge-swap"><i class="fas fa-arrows-rotate"></i> Remplacement</span>
                         </div>
                         <h3>Départ du fondateur original</h3>
-                        <p><strong>Zak</strong>, le fondateur original du serveur, se retire. Il est remplacé par <strong>𝑻𝒉𝒐𝒎𝒂𝒔 👓</strong>, qui devient le nouveau fondateur.</p>
+                        <p><strong>Zak</strong>, le fondateur original du serveur, se retire. <strong>𝑻𝒉𝒐𝒎𝒂𝒔 👓</strong>, déjà co-fondateur depuis le 2 juillet, est promu <strong>fondateur</strong> et prend la relève.</p>
                         <div class="timeline-people">
                             <div class="timeline-person">
                                 <img src="https://cdn.discordapp.com/avatars/1162122048001290332/bf4739560df665f7501379d4576598b2.webp?size=1024" alt="Zak">
@@ -632,13 +647,11 @@
                                     <span class="person-name">𝑻𝒉𝒐𝒎𝒂𝒔 👓</span>
                                     <span class="person-user">@thomasestbeau1</span>
                                 </div>
-                                <span class="person-tag tag-in">Arrivée</span>
+                                <span class="person-tag tag-promo">Promotion</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- 22 juillet 2026 : rachat -->
                 <div class="timeline-item reveal">
                     <div class="timeline-dot" style="--dot:#6d28d9"></div>
                     <div class="timeline-card">
@@ -671,8 +684,6 @@
             </div>
         </div>
     </section>
-    <!-- ===== FIN SECTION HISTORIQUE ===== -->
-
     <section id="faq">
         <div class="container">
             <div class="section-header reveal"><h2>Questions Fréquentes</h2><p>Tout ce que vous devez savoir avant de rejoindre nos rues avec des réponses détaillées.</p></div>
