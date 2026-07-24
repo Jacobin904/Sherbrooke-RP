@@ -20,20 +20,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
         :root {
-            --nuit-0:#05080f;
-            --nuit-1:#0a1024;
-            --nuit-2:#0d1530;
-            --nuit-3:#111a3a;
-            --primary:#2563eb;
-            --primary-dark:#1d4ed8;
-            --primary-light:#3b82f6;
-            --blue-clar:#60a5fa;
-            --blanc:#f2f4fb;
-            --blanc-2:#d6dcef;
-            --gris:#8b95b5;
-            --gris-2:#5d688a;
-            --border:rgba(214,220,239,.10);
-            --border-primary:rgba(37, 99, 235, .35);
+            --nuit-0:#05080f;--nuit-1:#0a1024;--nuit-2:#0d1530;--nuit-3:#111a3a;
+            --primary:#2563eb;--primary-dark:#1d4ed8;--primary-light:#3b82f6;--blue-clar:#60a5fa;
+            --blanc:#f2f4fb;--blanc-2:#d6dcef;--gris:#8b95b5;--gris-2:#5d688a;
+            --border:rgba(214,220,239,.10);--border-primary:rgba(37, 99, 235, .35);
             --grad-argent:linear-gradient(135deg,#fff 0%,#d6dcef 45%,#b8c4e0 100%);
             --grad-primary:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);
             --grad-primary-light:linear-gradient(135deg,#3b82f6 0%,#2563eb 100%);
@@ -79,8 +69,8 @@
         .logo img{height:50px;border-radius:50%;border:2px solid rgba(214,220,239,.4);box-shadow:0 0 20px rgba(37,99,235,.5)}
         .logo h1{font-size:1.8rem;font-weight:900;background:var(--grad-argent);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:'Playfair Display',serif;animation:gradShift 4s ease infinite}
         @keyframes gradShift{0%,100%{background-position:0% center}50%{background-position:100% center}}
-        .nav-links{display:flex;gap:30px;list-style:none}
-        .nav-links a{color:var(--gris);text-decoration:none;font-weight:600;font-size:.85rem;transition:all .3s;text-transform:uppercase;letter-spacing:.5px;position:relative;padding:5px 0}
+        .nav-links{display:flex;gap:24px;list-style:none}
+        .nav-links a{color:var(--gris);text-decoration:none;font-weight:600;font-size:.82rem;transition:all .3s;text-transform:uppercase;letter-spacing:.5px;position:relative;padding:5px 0}
         .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--grad-primary);transition:width .3s}
         .nav-links a:hover,.nav-links a.active{color:var(--blanc)}
         .nav-links a:hover::after,.nav-links a.active::after{width:100%}
@@ -110,10 +100,6 @@
         .btn:hover{transform:translateY(-3px);box-shadow:0 25px 60px rgba(37,99,235,.4);border-color:var(--primary)}
         .btn-secondary{background:transparent;border:2px solid rgba(214,220,239,.4);box-shadow:none}
         .btn-secondary:hover{background:rgba(37,99,235,.1);border-color:var(--primary);box-shadow:0 15px 40px rgba(37,99,235,.2)}
-        .section-divider{width:100%;height:80px;position:relative;overflow:hidden}
-        .section-divider svg{position:absolute;bottom:0;width:100%;height:100%}
-        .section-divider path{animation:waveMove 8s ease-in-out infinite}
-        @keyframes waveMove{0%,100%{d:path("M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z")}50%{d:path("M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,80 L0,80 Z")}}
         .marquee{background:linear-gradient(90deg,var(--nuit-2),var(--primary-dark),var(--nuit-2));padding:25px 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:5}
         .marquee-track{display:flex;gap:60px;white-space:nowrap;animation:marqScroll 25s linear infinite;width:max-content}
         .marquee-item{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--blanc);display:flex;align-items:center;gap:60px;letter-spacing:3px}
@@ -135,14 +121,10 @@
         .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad-primary);transform:scaleX(0);transform-origin:left;transition:transform .5s}
         .feature-card:hover{border-color:rgba(37,99,235,.4);box-shadow:0 40px 100px rgba(0,0,0,.5);transform:translateY(-5px)}
         .feature-card:hover::before{transform:scaleX(1)}
-        .feature-card::after{content:'';position:absolute;inset:-2px;border-radius:30px;background:conic-gradient(from var(--angle,0deg),var(--primary),var(--primary-dark),var(--primary));z-index:-1;opacity:0;transition:opacity .5s;animation:rotateBorder 4s linear infinite}
-        .feature-card:hover::after{opacity:.5}
-        @keyframes rotateBorder{to{--angle:360deg}}
-        @property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
-        .feature-icon{width:80px;height:80px;background:var(--grad-primary);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:var(--blanc);margin-bottom:30px;border:1px solid var(--border-primary);transition:all .5s;box-shadow:0 10px 30px rgba(37,99,235,.4);position:relative;z-index:1;transform:translateZ(40px)}
-        .feature-card:hover .feature-icon{transform:translateZ(60px) scale(1.15) rotate(10deg);background:var(--grad-primary-light);color:var(--nuit-1)}
-        .feature-card h3{font-size:1.8rem;margin-bottom:18px;color:var(--blanc);font-weight:800;position:relative;z-index:1;transform:translateZ(30px)}
-        .feature-card p{color:var(--gris);line-height:1.9;font-size:1.05rem;position:relative;z-index:1;transform:translateZ(20px)}
+        .feature-icon{width:80px;height:80px;background:var(--grad-primary);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:var(--blanc);margin-bottom:30px;border:1px solid var(--border-primary);transition:all .5s;box-shadow:0 10px 30px rgba(37,99,235,.4);position:relative;z-index:1}
+        .feature-card:hover .feature-icon{transform:scale(1.15) rotate(10deg);background:var(--grad-primary-light);color:var(--nuit-1)}
+        .feature-card h3{font-size:1.8rem;margin-bottom:18px;color:var(--blanc);font-weight:800;position:relative;z-index:1}
+        .feature-card p{color:var(--gris);line-height:1.9;font-size:1.05rem;position:relative;z-index:1}
         .dept-section{background:linear-gradient(180deg,var(--nuit-0),var(--nuit-1))}
         .dept-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:25px}
         .dept-tag{background:linear-gradient(135deg,rgba(37,99,235,.4),rgba(13,21,48,.6));padding:22px 40px;border-radius:50px;font-weight:700;color:var(--blanc-2);border:1px solid var(--border-primary);display:flex;align-items:center;gap:14px;transition:all .5s;backdrop-filter:blur(10px);font-size:1.05rem;box-shadow:0 10px 30px rgba(37,99,235,.2);position:relative;overflow:hidden}
@@ -258,120 +240,61 @@
         }
         @media(max-width:900px){.hamburger{display:flex}.nav-links{position:fixed;top:80px;left:0;width:100%;background:rgba(5,8,15,.98);backdrop-filter:blur(20px);flex-direction:column;gap:0;padding:20px 0;transform:translateY(-150%);transition:transform .4s;border-bottom:1px solid var(--border)}.nav-links.open{transform:translateY(0)}.nav-links li{width:100%;text-align:center}.nav-links a{display:block;padding:15px}}
         @media(max-width:768px){.container{padding:0 20px}.hero h2{font-size:3rem}.section-header h2{font-size:2.5rem}.cta h2{font-size:2.5rem}.btn-group{flex-direction:column;align-items:center}.features-grid,.rules-grid{grid-template-columns:1fr}.marquee-item{font-size:1.4rem;gap:40px}}
-        .info-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-            gap:30px;
-            margin-top:50px;
-        }
-        .info-card{
-            background:rgba(13,21,48,.6);
-            padding:30px;
-            border-radius:16px;
-            border:1px solid var(--border);
-            transition:all .3s;
-            height:100%;
-        }
-        .info-card:hover{
-            transform:translateY(-5px);
-            border-color:var(--primary);
-            box-shadow:0 20px 50px rgba(37,99,235,.2);
-        }
-        .info-card h3{
-            font-size:1.4rem;
-            margin-bottom:15px;
-            color:var(--blanc);
-            display:flex;
-            align-items:center;
-            gap:10px;
-        }
-        .info-card h3 i{
-            color:var(--primary-light);
-        }
-        .info-card ul{
-            list-style:none;
-            padding-left:0;
-        }
-        .info-card ul li{
-            margin-bottom:15px;
-            padding-left:25px;
-            position:relative;
-        }
-        .info-card ul li:before{
-            content:'✓';
-            position:absolute;
-            left:0;
-            color:var(--primary);
-            font-weight:bold;
-        }
-        .info-card p{
-            color:var(--gris);
-            line-height:1.7;
-            margin-bottom:15px;
-        }
-        .info-card .highlight{
-            color:var(--primary-light);
-            font-weight:bold;
-        }
-        .server-features{
-            background:linear-gradient(135deg, rgba(13,21,48,0.5), rgba(13,21,48,0.2));
-            padding:80px 0;
-            border-radius:20px;
-            margin:60px 0;
-            border:1px solid var(--border);
-        }
-        .section-subtitle{
-            font-size:1.3rem;
-            margin-bottom:10px;
-            color:var(--primary-light);
-            font-weight:600;
-        }
-        .section-subtitle::after{
-            content:'';
-            display:block;
-            width:50px;
-            height:3px;
-            background:var(--grad-primary);
-            margin-top:5px;
-            border-radius:2px;
-        }
-        .how-to-join{
-            background:linear-gradient(135deg, rgba(13,21,48,0.5), rgba(13,21,48,0.2));
-            padding:80px 0;
-            border-radius:20px;
-            margin:60px 0;
-            border:1px solid var(--border);
-        }
-        .step{
-            display:flex;
-            gap:30px;
-            align-items:flex-start;
-            margin-bottom:40px;
-        }
-        .step-number{
-            width:60px;
-            height:60px;
-            border-radius:50%;
-            background:var(--grad-primary);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:1.8rem;
-            font-weight:bold;
-            color:white;
-            flex-shrink:0;
-        }
-        .step-content{
-            flex:1;
-        }
-        .step-content h4{
-            font-size:1.3rem;
-            margin-bottom:10px;
-            color:var(--blanc);
-        }
-        .step-content p{
-            color:var(--gris);
-            line-height:1.7;
+        .info-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:30px;margin-top:50px}
+        .info-card{background:rgba(13,21,48,.6);padding:30px;border-radius:16px;border:1px solid var(--border);transition:all .3s;height:100%}
+        .info-card:hover{transform:translateY(-5px);border-color:var(--primary);box-shadow:0 20px 50px rgba(37,99,235,.2)}
+        .info-card h3{font-size:1.4rem;margin-bottom:15px;color:var(--blanc);display:flex;align-items:center;gap:10px}
+        .info-card h3 i{color:var(--primary-light)}
+        .info-card ul{list-style:none;padding-left:0}
+        .info-card ul li{margin-bottom:15px;padding-left:25px;position:relative}
+        .info-card ul li:before{content:'✓';position:absolute;left:0;color:var(--primary);font-weight:bold}
+        .info-card p{color:var(--gris);line-height:1.7;margin-bottom:15px}
+        .info-card .highlight{color:var(--primary-light);font-weight:bold}
+        .server-features{background:linear-gradient(135deg, rgba(13,21,48,0.5), rgba(13,21,48,0.2));padding:80px 0;border-radius:20px;margin:60px 0;border:1px solid var(--border)}
+        .section-subtitle{font-size:1.3rem;margin-bottom:10px;color:var(--primary-light);font-weight:600}
+        .section-subtitle::after{content:'';display:block;width:50px;height:3px;background:var(--grad-primary);margin-top:5px;border-radius:2px}
+        .how-to-join{background:linear-gradient(135deg, rgba(13,21,48,0.5), rgba(13,21,48,0.2));padding:80px 0;border-radius:20px;margin:60px 0;border:1px solid var(--border)}
+        .step{display:flex;gap:30px;align-items:flex-start;margin-bottom:40px}
+        .step-number{width:60px;height:60px;border-radius:50%;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:bold;color:white;flex-shrink:0}
+        .step-content{flex:1}
+        .step-content h4{font-size:1.3rem;margin-bottom:10px;color:var(--blanc)}
+        .step-content p{color:var(--gris);line-height:1.7}
+
+        /* ===== TIMELINE HISTORIQUE ===== */
+        .history-section{background:linear-gradient(180deg,var(--nuit-0),var(--nuit-1))}
+        .timeline{position:relative;max-width:900px;margin:0 auto}
+        .timeline::before{content:'';position:absolute;left:8.5px;top:8px;bottom:8px;width:3px;background:linear-gradient(180deg,var(--primary-light),var(--primary),var(--primary-dark));border-radius:3px}
+        .timeline-item{position:relative;padding-left:55px;margin-bottom:55px}
+        .timeline-item:last-child{margin-bottom:0}
+        .timeline-dot{position:absolute;left:0;top:26px;width:20px;height:20px;border-radius:50%;background:var(--dot,var(--primary));border:3px solid var(--nuit-0);box-shadow:0 0 14px var(--dot,var(--primary));z-index:1}
+        .timeline-card{background:rgba(13,21,48,.6);border:1px solid var(--border);border-radius:20px;padding:32px;backdrop-filter:blur(10px);transition:all .4s}
+        .timeline-card:hover{border-color:var(--primary);transform:translateX(8px);box-shadow:0 15px 50px rgba(37,99,235,.25)}
+        .timeline-meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px}
+        .timeline-date{display:inline-flex;align-items:center;gap:8px;color:var(--gris);font-size:.95rem;font-weight:600}
+        .timeline-date i{color:var(--primary-light)}
+        .timeline-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+        .badge-swap{background:rgba(59,130,246,.15);color:#60a5fa;border:1px solid rgba(59,130,246,.3)}
+        .badge-out{background:rgba(220,38,38,.15);color:#f87171;border:1px solid rgba(220,38,38,.3)}
+        .badge-buy{background:rgba(109,40,217,.15);color:#a78bfa;border:1px solid rgba(109,40,217,.3)}
+        .timeline-card h3{font-size:1.45rem;color:var(--blanc);margin-bottom:10px;font-weight:800}
+        .timeline-card>p{color:var(--gris);line-height:1.8;margin-bottom:22px}
+        .timeline-people{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+        .timeline-person{display:flex;align-items:center;gap:12px;background:rgba(5,8,15,.5);border:1px solid var(--border);border-radius:14px;padding:10px 16px;transition:all .3s}
+        .timeline-person:hover{border-color:var(--primary);transform:translateY(-3px)}
+        .timeline-person img{width:50px;height:50px;border-radius:50%;border:2px solid var(--primary);object-fit:cover}
+        .timeline-person .p-info{display:flex;flex-direction:column}
+        .timeline-person .person-name{color:var(--blanc);font-weight:700;font-size:.98rem;line-height:1.3}
+        .timeline-person .person-user{color:var(--gris);font-size:.85rem}
+        .person-tag{padding:4px 11px;border-radius:12px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+        .tag-out{background:rgba(220,38,38,.15);color:#f87171}
+        .tag-in{background:rgba(22,163,74,.15);color:#4ade80}
+        .tag-owner{background:rgba(109,40,217,.15);color:#a78bfa}
+        .timeline-arrow{color:var(--primary-light);font-size:1.4rem}
+        @media(max-width:768px){
+            .timeline-item{padding-left:42px}
+            .timeline-people{flex-direction:column;align-items:stretch}
+            .timeline-arrow{transform:rotate(90deg);align-self:center}
+            .timeline-person{justify-content:flex-start}
         }
     </style>
 </head>
@@ -397,6 +320,7 @@
                 <li><a href="#departements" class="nav-link">Départements</a></li>
                 <li><a href="#reglements" class="nav-link">Règles</a></li>
                 <li><a href="#equipe" class="nav-link">Équipe</a></li>
+                <li><a href="#historique" class="nav-link">Histoire</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#rejoindre" class="nav-link">Rejoindre</a></li>
             </ul>
@@ -435,7 +359,6 @@
             </div>
         </div>
     </section>
-    
     <section class="server-features">
         <div class="container">
             <h2 class="section-header">Détails du Serveur</h2>
@@ -483,12 +406,10 @@
             </div>
         </div>
     </section>
-    
     <section class="how-to-join">
         <div class="container">
             <h2 class="section-header">Comment Rejoindre</h2>
             <p class="section-subtitle">Suivez ces étapes pour rejoindre notre communauté</p>
-            
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
@@ -496,7 +417,6 @@
                     <p>Si vous n'avez pas déjà de compte Roblox, créez-en un sur <a href="https://www.roblox.com/" target="_blank" style="color:var(--primary-light);">roblox.com</a>. Assurez-vous d'utiliser un nom d'utilisateur approprié qui reflète votre personnage RP.</p>
                 </div>
             </div>
-            
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
@@ -504,7 +424,6 @@
                     <p>Recherchez "Sherbrooke RP" dans les serveurs communautaires de ERLC. Le code d'accès est <span class="highlight">SHERBRP</span>. Une fois connecté, vous verrez notre serveur dans la liste.</p>
                 </div>
             </div>
-            
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
@@ -512,7 +431,6 @@
                     <p>Rejoignez notre serveur Discord à l'adresse <a href="https://discord.gg/JBND23V6q" target="_blank" style="color:var(--primary-light);">discord.gg/JBND23V6q</a>. Utilisez les bots <span class="highlight">Melonly</span> ou <span class="highlight">RoVer</span> dans le salon dédié pour lier vos comptes.</p>
                 </div>
             </div>
-            
             <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-content">
@@ -522,7 +440,6 @@
             </div>
         </div>
     </section>
-    
     <section class="dept-section" id="departements">
         <div class="container">
             <div class="section-header reveal"><h2>Nos Départements</h2><p>Rejoignez les forces vives de la ville ou bâtissez votre propre histoire avec des détails complets sur chaque département.</p></div>
@@ -538,7 +455,6 @@
             </div>
         </div>
     </section>
-    
     <section id="reglements">
         <div class="container">
             <div class="section-header reveal"><h2>Règlements du Serveur</h2><p>Pour garantir une expérience de jeu sérieuse, agréable et respectueuse pour tous avec des explications détaillées.</p></div>
@@ -550,10 +466,8 @@
                 <div class="rule-card reveal-left"><span class="rule-num">05</span><h4><i class="fas fa-user-secret"></i> Vie Privée & HRP</h4><p>Le partage d'informations personnelles (Dox) est strictement interdit. Ne mélangez pas les conflits HRP avec le RP.</p></div>
                 <div class="rule-card reveal-right"><span class="rule-num">06</span><h4><i class="fas fa-gavel"></i> Autorité du Staff</h4><p>Les décisions du staff sont finales. En cas de désaccord, ouvrez un ticket calmement avec des preuves. Le combat log est interdit.</p></div>
             </div>
-            
             <div class="faq-container stagger" style="margin-top:60px;">
                 <h3 style="text-align:center;margin-bottom:40px;font-size:2rem;color:var(--blanc);">Détails des Règles</h3>
-                
                 <div class="faq-item">
                     <div class="faq-question">Respect Absolu - Détails complets <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">
@@ -569,7 +483,6 @@
                         </ul>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">Immersion RP - Détails complets <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">
@@ -581,7 +494,6 @@
                         <p><strong>Exemple incorrect :</strong> Un joueur sait qu'une arme a été volée grâce à un message sur Discord et agit en conséquence dans le jeu.</p>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">Conduite & Combat - Détails complets <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">
@@ -596,7 +508,6 @@
             </div>
         </div>
     </section>
-    
     <section class="team-section" id="equipe">
         <div class="container">
             <div class="section-header reveal"><h2>Notre Équipe de Direction</h2><p>Des personnes passionnées et dévouées pour vous offrir la meilleure expérience de roleplay avec des détails sur leurs rôles.</p></div>
@@ -631,6 +542,137 @@
             </div>
         </div>
     </section>
+
+    <!-- ===== NOUVELLE SECTION : HISTORIQUE DE LA DIRECTION ===== -->
+    <section class="history-section" id="historique">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Historique de la direction</h2>
+                <p>Retour sur les changements majeurs à la tête du serveur, de sa fondation à aujourd'hui.</p>
+            </div>
+            <div class="timeline">
+                <!-- 15 mars 2026 : Yuker -> Filoutalbot -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot" style="--dot:#3b82f6"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-date"><i class="fas fa-calendar-day"></i> 15 mars 2026</span>
+                            <span class="timeline-badge badge-swap"><i class="fas fa-arrows-rotate"></i> Remplacement</span>
+                        </div>
+                        <h3>Changement de co-fondateur</h3>
+                        <p>Le co-fondateur <strong>Yuker</strong> quitte la direction du serveur. Il est remplacé par <strong>Filoutalbot</strong>, qui reprend le rôle de co-fondateur.</p>
+                        <div class="timeline-people">
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1236108148910063619/7f55c73086b24fce02a8f9bb31f93ab2.webp?size=1024" alt="Yuker">
+                                <div class="p-info">
+                                    <span class="person-name">Yuker</span>
+                                    <span class="person-user">@yukerofficiel</span>
+                                </div>
+                                <span class="person-tag tag-out">Départ</span>
+                            </div>
+                            <div class="timeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1070494293724233728/a4d338ba9375cc96750c6b1607c82e51.webp?size=1024" alt="Filoutalbot">
+                                <div class="p-info">
+                                    <span class="person-name">Filoutalbot</span>
+                                    <span class="person-user">@filoutalbot</span>
+                                </div>
+                                <span class="person-tag tag-in">Arrivée</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 19 avril 2026 : départ Filoutalbot -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot" style="--dot:#dc2626"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-date"><i class="fas fa-calendar-day"></i> 19 avril 2026</span>
+                            <span class="timeline-badge badge-out"><i class="fas fa-door-open"></i> Départ</span>
+                        </div>
+                        <h3>Départ du co-fondateur Filou</h3>
+                        <p>Le co-fondateur <strong>Filoutalbot</strong> quitte à son tour sa place au sein de la direction du serveur.</p>
+                        <div class="timeline-people">
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1070494293724233728/a4d338ba9375cc96750c6b1607c82e51.webp?size=1024" alt="Filoutalbot">
+                                <div class="p-info">
+                                    <span class="person-name">Filoutalbot</span>
+                                    <span class="person-user">@filoutalbot</span>
+                                </div>
+                                <span class="person-tag tag-out">Départ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 18 juillet 2026 : Zak -> Thomas -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot" style="--dot:#3b82f6"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-date"><i class="fas fa-calendar-day"></i> 18 juillet 2026</span>
+                            <span class="timeline-badge badge-swap"><i class="fas fa-arrows-rotate"></i> Remplacement</span>
+                        </div>
+                        <h3>Départ du fondateur original</h3>
+                        <p><strong>Zak</strong>, le fondateur original du serveur, se retire. Il est remplacé par <strong>𝑻𝒉𝒐𝒎𝒂𝒔 👓</strong>, qui devient le nouveau fondateur.</p>
+                        <div class="timeline-people">
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1162122048001290332/bf4739560df665f7501379d4576598b2.webp?size=1024" alt="Zak">
+                                <div class="p-info">
+                                    <span class="person-name">Zak</span>
+                                    <span class="person-user">@zakplayz0254</span>
+                                </div>
+                                <span class="person-tag tag-out">Départ</span>
+                            </div>
+                            <div class="timeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1112479857218179163/64847004f44f71d1126a4164325c96f0.webp?size=1024" alt="Thomas">
+                                <div class="p-info">
+                                    <span class="person-name">𝑻𝒉𝒐𝒎𝒂𝒔 👓</span>
+                                    <span class="person-user">@thomasestbeau1</span>
+                                </div>
+                                <span class="person-tag tag-in">Arrivée</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 22 juillet 2026 : rachat -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot" style="--dot:#6d28d9"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-date"><i class="fas fa-calendar-day"></i> 22 juillet 2026</span>
+                            <span class="timeline-badge badge-buy"><i class="fas fa-hand-holding-dollar"></i> Rachat</span>
+                        </div>
+                        <h3>Le serveur change de mains</h3>
+                        <p>Sherbrooke RP est <strong>racheté par les deux nouveaux propriétaires</strong>, <strong>jerome201209</strong> et <strong>Vanile101010</strong>, qui en assurent désormais la direction et la pérennité.</p>
+                        <div class="timeline-people">
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1056608991075123211/a2d6ea2b6d8db263c3e8b07ca8605d49.webp?size=1024" alt="jerome201209">
+                                <div class="p-info">
+                                    <span class="person-name">@31-22 | jerome201209</span>
+                                    <span class="person-user">@jerome201209</span>
+                                </div>
+                                <span class="person-tag tag-owner">Propriétaire</span>
+                            </div>
+                            <div class="timeline-person">
+                                <img src="https://cdn.discordapp.com/avatars/1504186999098314882/0b7fe4ae81670ba163b4eb6507671e48.webp?size=1024" alt="Vanile101010">
+                                <div class="p-info">
+                                    <span class="person-name">Vanile101010</span>
+                                    <span class="person-user">@disc0rdvanille</span>
+                                </div>
+                                <span class="person-tag tag-owner">Propriétaire</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== FIN SECTION HISTORIQUE ===== -->
+
     <section id="faq">
         <div class="container">
             <div class="section-header reveal"><h2>Questions Fréquentes</h2><p>Tout ce que vous devez savoir avant de rejoindre nos rues avec des réponses détaillées.</p></div>
@@ -684,6 +726,7 @@
                     <li><a href="#departements"><i class="fas fa-building-shield"></i> Départements</a></li>
                     <li><a href="#reglements"><i class="fas fa-scroll"></i> Règlements</a></li>
                     <li><a href="#equipe"><i class="fas fa-users"></i> Équipe</a></li>
+                    <li><a href="#historique"><i class="fas fa-clock-rotate-left"></i> Histoire</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -726,6 +769,7 @@
             <a href="#departements"><i class="fas fa-building-shield"></i> Départements</a>
             <a href="#reglements"><i class="fas fa-scroll"></i> Règles</a>
             <a href="#equipe"><i class="fas fa-users"></i> Équipe</a>
+            <a href="#historique"><i class="fas fa-clock-rotate-left"></i> Histoire</a>
             <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
             <a href="#rejoindre" class="qn-cta"><i class="fab fa-discord"></i> Rejoindre</a>
         </nav>
